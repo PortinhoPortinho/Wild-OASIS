@@ -48,7 +48,7 @@ const Error = styled.span`
 
 function FormRow({ label, error, children, orientation }) {
   return (
-    <StyledFormRow orientation={orientation}>
+    <StyledFormRow>
       {label && <Label htmlFor={children.props.id}>{label}</Label>}
       {children}
       {error && <Error>{error}</Error>}
