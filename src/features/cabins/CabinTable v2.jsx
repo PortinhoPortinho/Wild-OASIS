@@ -4,7 +4,16 @@ import Spinner from "ui/Spinner";
 import { getCabins } from "../../services/apiCabins";
 import { useQuery } from "@tanstack/react-query";
 import { formatCurrency } from "../../utils/helpers";
-import Table from "../../ui/Table";
+
+const Table = styled.div`
+  border: 1px solid var(--color-grey-200);
+
+  font-size: 1.4rem;
+  background-color: var(--color-grey-0);
+  border-radius: 7px;
+  overflow: hidden;
+`;
+
 const TableHeader = styled.header`
   display: grid;
   grid-template-columns: 0.6fr 1.8fr 2.2fr 1fr 1fr 1fr;
@@ -34,15 +43,15 @@ function CabinTable() {
     return <Spinner />;
   }
   return (
-    <Table columns="0.6fr 1.8fr 2.2fr 1fr 1fr 1fr">
-      <Table.Header>
+    <Table>
+      <TableHeader>
         <div></div>
         <div>Cabin</div>
         <div>Capacity</div>
         <div>Price</div>
         <div>Discount</div>
         <div></div>
-      </Table.Header>
+      </TableHeader>
       {cabins.map((cabin) => (
         <CabinRow key={cabin.id} cabin={cabin} />
       ))}
